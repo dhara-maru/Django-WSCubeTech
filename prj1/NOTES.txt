@@ -1,0 +1,91 @@
+CSRF Token is compulsory when using post method in forms in django.
+A CSRF (Cross-Site Request Forgery) token in Django is a security measure to protect your web application from a type of attack where a malicious site tricks a user into performing actions on another site where they are authenticated.
+Why Use It?: It ensures that the actions you perform on the website are intentional and not triggered by another site, keeping your data safe.
+
+
+//***************************** PAGE REDIRECTION (WSCUBE TECH VIDEO 27) *************************************
+//for page redirection, import this 
+from django.http import HttpResponse,HttpResponseRedirect
+
+//and just add this line inside the block where you want to redirect
+return HttpResponseRedirect('/about1/')
+
+//when you want the data to show in url
+url="/about1/?finalans={}".format(finalans)
+return HttpResponseRedirect(url)
+
+//and in that pages, view method :
+def about1(request):
+    if request.method == "GET":
+        output=request.GET.get('finalans')
+        
+    return render(request,"about.html",{'finalans':output})
+
+//and access in that page anywhere you want like :
+<h1>{{finalans}}</h1>
+
+//***************************** ACTION attribute in FORMS (WSCUBE TECH VIDEO 28) *************************************
+//first, have this as an action attribute in form
+<form class="container-fluid" method="post" action="{% url 'submitform1' %}">
+
+//in urls.py, add its path
+ path('submitform1/', views.submitform1, name='submitform1'),
+
+ //in views.py, add its method. YOU CAN FETCH THE DATA IN THAT PAGE LIKE THIS :
+def submitform1(request):
+   finalans=0
+   data={}
+   try:
+        if request.method=="POST":
+             n1=int(request.POST.get('num1'))
+             n2=int(request.POST.get('num2'))
+             finalans=n1+n2
+             data={
+                 'num1': n1,
+                 'num2':n2,
+                 'finalans':finalans
+             }
+           
+             return HttpResponse(finalans)
+   except:
+        pass
+
+//***************************** WORKING WITH FORMS (WSCUBE TECH VIDEO 29) *************************************
+
+//make forms.py file inside your prj in folder of urls.py, setting.py and views.py exc
+//in forms.py file
+from django import forms
+
+//now make a class
+class userforms(forms.Form)
+//here, classname can be of your choice, in params, the 'forms' is the class you just imported from django & 'Form' is its object which is also builtin in django.
+
+//now you can have things as per your fields in form like this -
+num1=forms.CharField() //the 'num1' & 'num2' is from the 'NAME ATTRIBUTE' in the form
+num2=forms.CharField() // the 'forms' is again the class name and CharField is the data type of the field.
+
+//import this in Views.py
+from .forms import userforms
+
+//call this in your userforms page's method
+ fn=userforms()
+
+ data={'form':fn}
+ data={
+                 'num1': n1,
+                 'num2':n2,
+                 'finalans':finalans,
+                 'form':fn //use this
+             }
+
+//and remove the fields from userforms.html and call 'form' key there.
+// so it will work the same + gives extra features like validation. 
+this is why you have to use django forms.
+
+//you can have or change its attribute too like this -
+num1=forms.CharField(
+        label="Value 1",
+        required=False,
+        widget=forms.Textarea(
+         attrs={'class': 'form-control'}
+    ))

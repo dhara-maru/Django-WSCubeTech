@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 align="center" style="color:white"> Calculator </h1>
+<form class="container-fluid" method="post" >
+  {% csrf_token %}
+
+ <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label" style="color:white">Value 1</label>
+    <input type="text" class="form-control" value="{{num1}}" id="formGroupExampleInput" name="num1" placeholder="Example input placeholder">
+  </div>
+  <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label" style="color:white">Select Operator</label>
+    
+    <select name="opr" class="form-control">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+   </div> 
+  <div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label" style="color:white">Value 2</label>
+    <input type="text" class="form-control" value="{{num2}}" id="formGroupExampleInput2" name="num2" placeholder="Another input placeholder">
+  </div> 
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Calculate</button>
+  </div>
+</form>
+
+{% if c is not None %}
+  <div class="mt-3" style="color:white;">
+    <p align="center">Answer: {{ c }}</p>
+  </div>
+{% endif %}
+
+{% endblock content %}

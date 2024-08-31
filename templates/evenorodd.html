@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 align="center" style="color:white"> Even or Odd Number </h1>
+<form class="container-fluid" method="post" >
+  {% csrf_token %}
+
+ <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label" style="color:white">Value 1</label>
+    <input type="text" class="form-control" value="{{num1}}" id="formGroupExampleInput" name="num1" placeholder="Example input placeholder">
+  </div>
+  
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Check</button>
+  </div>
+</form>
+
+{% if ans is not None %}
+  <div class="mt-3" style="color:white;">
+    <p align="center">The Number is {{ ans }}</p>
+  </div>
+{% endif %}
+
+{% endblock content %}
