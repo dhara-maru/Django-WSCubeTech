@@ -89,3 +89,15 @@ num1=forms.CharField(
         widget=forms.Textarea(
          attrs={'class': 'form-control'}
     ))
+
+//*********************************** MANUAL FORM VALIDATION ***************************************
+// add this in your views method
+if request.POST.get('num1')=='':
+                return render(request,"evenorodd.html",{'error':True})
+
+//and add this where you want to show the alert validation in your form
+ {% if error %}
+  <div class="alert alert-danger" role="alert">
+    Please enter a value !
+  </div>
+  {% endif %}

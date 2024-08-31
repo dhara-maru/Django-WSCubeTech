@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 align="center" style="color:white">Marksheet</h1>
+<form class="container" method="post">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="pythonm" class="form-label" style="color:white">Python</label>
+        <input type="text" class="form-control form-control-sm" value="{{pythonm}}" id="pythonm" name="pythonm" placeholder="Enter Python marks">
+      </div>
+      <div class="mb-3">
+        <label for="javam" class="form-label" style="color:white">Java</label>
+        <input type="text" class="form-control form-control-sm" value="{{javam}}" id="javam" name="javam" placeholder="Enter Java marks">
+      </div>
+      <div class="mb-3">
+        <label for="dbmsm" class="form-label" style="color:white">DBMS</label>
+        <input type="text" class="form-control form-control-sm" value="{{dbmsm}}" id="dbmsm" name="dbmsm" placeholder="Enter DBMS marks">
+      </div>
+      <div class="mb-3">
+        <label for="englishm" class="form-label" style="color:white">English</label>
+        <input type="text" class="form-control form-control-sm" value="{{englishm}}" id="englishm" name="englishm" placeholder="Enter English marks">
+      </div>
+      <div class="mb-3">
+        <label for="accountsm" class="form-label" style="color:white">Accounts</label>
+        <input type="text" class="form-control form-control-sm" value="{{accountsm}}" id="accountsm" name="accountsm" placeholder="Enter Accounts marks">
+      </div>
+      <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Get Marks</button>
+      </div>
+    </div>
+
+    <div class="col-md-6 text-end">
+      <div class="mb-3">
+        <label for="totalm" class="form-label" style="color:white">Total :</label>
+        <input type="text" class="form-control form-control-sm" value="{{t1}}" id="totalm" name="totalm" placeholder="Your total marks are...">
+      </div>
+      <div class="mb-3">
+        <label for="percent" class="form-label" style="color:white">Percentage :</label>
+        <input type="text" class="form-control form-control-sm" value="{{p1}}" id="percent" name="percent" placeholder="Your percentage is...">
+      </div>
+      <div class="mb-3">
+        <label for="division" class="form-label" style="color:white">Division :</label>
+        <input type="text" class="form-control form-control-sm" value="{{d1}}" id="division" name="division" placeholder="Your division is...">
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock content %}

@@ -29,6 +29,48 @@ def team1(request):
 def why1(request):
     return render(request,"why.html")
 
+def marksheet1(request):
+    try:
+        totalm = ''
+        percent = ''
+        division = ''
+        if request.method == "POST":
+            pythonm = eval(request.POST.get('pythonm'))
+            javam = eval(request.POST.get('javam'))
+            dbmsm = eval(request.POST.get('dbmsm'))
+            englishm = eval(request.POST.get('englishm'))
+            accountsm = eval(request.POST.get('accountsm'))
+            
+            total = pythonm + javam + dbmsm + englishm + accountsm
+            percent = total * 100 / 500
+            
+            if percent > 90 and percent <= 100:
+                division = 'Distinction'
+            elif percent > 80 and percent <= 90:
+                division = 'First Class'
+            elif percent > 60 and percent <= 80:
+                division = 'Second Class'
+            elif percent > 40 and percent <= 60:
+                division = 'Third Class'
+            elif percent < 33:
+                division = "Failed"
+            
+            datamarks = {
+                't1': total,
+                'p1': percent,
+                'd1': division
+            }
+            return render(request, "marksheet.html", datamarks)
+    except Exception as e:
+        # Log the exception for debugging
+        print(f"Error: {e}")
+        # Return an error response or redirect to an error page
+        return HttpResponse("ENTER VALID VALUES PLEASE!")
+
+    # If the request method is not POST, render the form page
+    return render(request, "marksheet.html")
+    
+
 def calc1(request):
     try:
         c=''
@@ -56,6 +98,10 @@ def evenorodd1(request):
     try:
         ans=''
         if request.method=="POST":
+            if request.POST.get('num1')=='':
+                return render(request,"evenorodd.html",{'error':True})
+            
+            
             n1=eval(request.POST.get('num1'))
             if n1%2==0:
                 ans="Even"

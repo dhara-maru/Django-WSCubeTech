@@ -3,6 +3,11 @@
 
 <h1 align="center" style="color:white"> Even or Odd Number </h1>
 <form class="container-fluid" method="post" >
+  {% if error %}
+  <div class="alert alert-danger" role="alert">
+    Please enter a value !
+  </div>
+  {% endif %}
   {% csrf_token %}
 
  <div class="mb-3">
