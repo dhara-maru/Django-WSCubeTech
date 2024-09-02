@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 from .forms import userforms
+from service.models import Services
 
 def home(request):
     data={
@@ -23,6 +24,8 @@ def about1(request):
         
     return render(request,"about.html",{'finalans':output})
 def service1(request):
+    
+    servicedata = Services.objects().all()
     return render(request,"service.html")
 def team1(request):
     return render(request,"team.html")

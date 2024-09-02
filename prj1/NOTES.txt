@@ -90,7 +90,7 @@ num1=forms.CharField(
          attrs={'class': 'form-control'}
     ))
 
-//*********************************** MANUAL FORM VALIDATION ***************************************
+//*********************************** MANUAL FORM VALIDATION VID 33 ***************************************
 // add this in your views method
 if request.POST.get('num1')=='':
                 return render(request,"evenorodd.html",{'error':True})
@@ -101,3 +101,39 @@ if request.POST.get('num1')=='':
     Please enter a value !
   </div>
   {% endif %}
+
+//***************************************MODELS IN DJANGO VID 34 ********************************
+//FOR MORE NOTES, REFER TO DJANGO DOC MODELS : 
+A model is the single, definitive source of information about your data. It contains the essential fields and behaviors of the data you’re storing. Generally, each model maps to a single database table.
+
+
+
+
+//****************************************** CREATE MODELS IN DJANGO VID 35 *********************************
+// how to create a MODEL
+python manage.py startapp modelname
+//it will create a folder where you can find Models.py (make models fields there) and Admin.py (Register your models fields there)
+
+//in models.py
+from django.db import models
+class Services(models.Model):
+    service_icon = models.CharField(max_length=50)
+    service_title = models.CharField(max_length=50)
+    service_desc = models.TextField()
+
+//connect your model name in INSTALLED APPS in settings.py
+
+//to permit data in adminpanel you must add 'admin.ModelAdmin' in params
+class serviceadmin(admin.ModelAdmin):
+    list_display=('service_icon','service_title','service_desc')
+
+//then register in admin.py like this
+admin.site.register(Services, serviceadmin)
+
+//****************************************** DISPLAY DATA FROM TABLE IN DJANGO VID 36 ****************************
+
+//import model in views.py
+from service.models import Services
+
+//write like this where u wanna show the data
+servicedata = Services.objects().all()
