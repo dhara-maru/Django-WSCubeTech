@@ -123,6 +123,13 @@ class Services(models.Model):
 
 //connect your model name in INSTALLED APPS in settings.py
 
+//make migrations
+python manage.py makemigrations
+
+//write this too
+python manage.py migrate
+
+
 //to permit data in adminpanel you must add 'admin.ModelAdmin' in params
 class serviceadmin(admin.ModelAdmin):
     list_display=('service_icon','service_title','service_desc')
@@ -136,4 +143,46 @@ admin.site.register(Services, serviceadmin)
 from service.models import Services
 
 //write like this where u wanna show the data
-servicedata = Services.objects().all()
+def service1(request):
+    # Fetch all records from the newserviceclass model
+    newservicedata = newserviceclass.objects.all()  # Correct usage
+    data = {
+        'servicesdata': newservicedata
+    }
+    return render(request, "service.html", data)
+
+//in .html page where you wanna show data :
+ {% for n in servicesdata %}
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="/static/images/s1.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  {{n.service_title}}
+                </h5>
+                <p>
+                  {{n.service_desc}}
+                </p>
+                <a href="">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %} 
+
+
+//************************************* ASCENDING DESCENDING DATA VID 37 **********************************
+//ASCENDING by id
+ newservicedata = newserviceclass.objects.all().order_by('id')
+//DESCENDING by id
+ newservicedata = newserviceclass.objects.all().order_by('-id')
+
+
+//************************************* LIMIT on DATA VID 38 **********************************
+//it will show only 3 data
+newservicedata = newserviceclass.objects.all().order_by('-id')[:3]
+//it will show only 2nd, 3rd, 4th data (means 2 to 5)
+newservicedata = newserviceclass.objects.all().order_by('-id')[2:5]
