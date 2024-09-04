@@ -186,3 +186,28 @@ def service1(request):
 newservicedata = newserviceclass.objects.all().order_by('-id')[:3]
 //it will show only 2nd, 3rd, 4th data (means 2 to 5)
 newservicedata = newserviceclass.objects.all().order_by('-id')[2:5]
+
+//************************************* TEMPLATE FILTERS VID 39 **********************************
+//use this with pipe sign to modify the dynamic data. for ex, 
+{{n.service_desc | upper }} #this will convert the desc data in uppercase 
+{{n.service_desc | first }} #this will convert the desc data's first letter
+{{n.service_desc | capfirst }} #this will convert the desc data's first letter's capital
+{{n.service_desc | wordcount }} 
+{{n.service_desc | length }} , etc.
+
+//************************************* TinyMCE VID 40 **********************************
+1. pip install django-tinymce
+2. add it in installed apps 'tinymce'
+3. import like this in ur models :
+from tinymce.models import HTMLField
+class news(models.Model):
+    news_title=models.CharField(max_length=100)
+    news_desc=HTMLField()
+
+//************************************* MARQUEE TAG VID 41 **********************************
+<marquee style="color:white">
+  {% for news in newsdata %}
+  {{news.news_title}} &nbsp &nbsp &nbsp 
+  {% endfor %}
+</marquee>
+

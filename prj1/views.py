@@ -3,8 +3,11 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import render
 from .forms import userforms
 from newservice.models import newserviceclass
+from news.models import news
+
 
 def home(request):
+    newsdata = news.objects.all();
     data={
        "title":"Dhara's Site",
         "dharas":"Dhara's",
@@ -14,7 +17,8 @@ def home(request):
         "student_details" : [
             {'name':'Dhara', 'phone':'8724958284'},
              {'name':'Hetvi', 'phone':'8724958284'},
-        ]
+        ],
+        'newsdata': newsdata,
     }
    
     return render(request,"index.html",data)
