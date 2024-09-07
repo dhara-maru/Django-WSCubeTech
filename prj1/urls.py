@@ -24,11 +24,11 @@ urlpatterns = [
     path('about1/', views.about1, name='about1'),
     path('service1/', views.service1, name='service1'),
     path('team1/', views.team1, name='team1'),
-    path('why1/', views.why1, name='why1'),
     path('userform1/', views.userform1, name='userform1'),
     path('submitform1/', views.submitform1, name='submitform1'),
     path('calc1/', views.calc1),
     path('evenorodd1/',views.evenorodd1),
     path('marksheet1/',views.marksheet1),
+    path('blog1/',views.blog1, name='blog1'),
     path('newsdetail1/<id>',views.newsdetail)
 ]

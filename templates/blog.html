@@ -13,7 +13,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="/static/images/favicon.png" type="">
 
-  <title> Finexo </title>
+  <title> Finexo | Blogs </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
@@ -70,7 +70,7 @@
             <a class="nav-link" href="{% url 'service1' %}">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'why1' %}">Why Us</a>
+            <a class="nav-link" href="{% url 'blog1' %}">Blogs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'team1' %}">Team</a>
@@ -134,12 +134,53 @@
                 <p>
                   {{n.service_desc | safe }}
                 </p>
-                
+                <a href="">
+                  Read More
+                </a>
               </div>
             </div>
           </div>
           {% endfor %}
-        
+          {% comment %} <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="/static/images/s2.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Security Storage
+                </h5>
+                <p>
+                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                  The
+                  point of using
+                </p>
+                <a href="">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="/static/images/s3.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  Expert Support
+                </h5>
+                <p>
+                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                  The
+                  point of using
+                </p>
+                <a href="">
+                  Read More
+                </a>
+              </div>
+            </div>
+          </div> {% endcomment %}
         </div>
         <div class="btn-box">
           <a href="{% url 'service1' %}">View All</a>
@@ -248,3 +289,4 @@
 
   <!-- end info section -->
   {% include "footer.html" %}
+

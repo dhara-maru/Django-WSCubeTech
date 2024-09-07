@@ -16,14 +16,13 @@
                 <div class="col-md-6 ">
                   <div class="detail-box">
                     <h1>
-                     {{dharas}} <br>
-                      {{secondtext}}
+                      Unlock Your<br> Digital Potential
                     </h1>
                     <p>
-                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
+                      Transform your ideas into reality with cutting-edge software solutions tailored to your needs. From custom applications to scalable platforms.
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="/services1/" class="btn1">
                         Read More
                       </a>
                     </div>
@@ -43,14 +42,12 @@
                 <div class="col-md-6 ">
                   <div class="detail-box">
                     <h1>
-                      Crypto <br>
-                      Currency
+                      Innovative Solutions <br>for Tomorrow
                     </h1>
                     <p>
-                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
-                    </p>
+                      Stay ahead of the curve with our forward-thinking software services. We specialize in solutions that drive efficiency for your business.</p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="/services1/" class="btn1">
                         Read More
                       </a>
                     </div>
@@ -70,14 +67,12 @@
                 <div class="col-md-6 ">
                   <div class="detail-box">
                     <h1>
-                      Crypto <br>
-                      Currency
+                      Seamless<br> Technology Integration
                     </h1>
                     <p>
-                      Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
-                    </p>
+                      Integrate the latest technologies effortlessly into your operations. Our expert team ensures smooth implementation.</p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="/services1/" class="btn1">
                         Read More
                       </a>
                     </div>
@@ -114,10 +109,10 @@
             Our <span>Services</span>
           </h2>
           <p>
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-          </p>
+            Transforming your vision into innovative software solutions with Finexo's expert development services.  </p>
         </div>
         <div class="row">
+          {% for n in servicesdata %}
           <div class="col-md-4 ">
             <div class="box ">
               <div class="img-box">
@@ -125,62 +120,19 @@
               </div>
               <div class="detail-box">
                 <h5>
-                  Currency Wallet
+                  {{n.service_title}}
                 </h5>
                 <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
+                  {{n.service_desc | safe }}
                 </p>
-                <a href="">
-                  Read More
-                </a>
+                
               </div>
             </div>
           </div>
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="/static/images/s2.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Security Storage
-                </h5>
-                <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="/static/images/s3.png" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Expert Support
-                </h5>
-                <p>
-                  fact that a reader will be distracted by the readable content of a page when looking at its layout.
-                  The
-                  point of using
-                </p>
-                <a href="">
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
         <div class="btn-box">
-          <a href="">
+          <a href="/services1/">
             View All
           </a>
         </div>
@@ -200,8 +152,7 @@
           About <span>Us</span>
         </h2>
         <p>
-          Magni quod blanditiis non minus sed aut voluptatum illum quisquam aspernatur ullam vel beatae rerum ipsum voluptatibus
-        </p>
+          Discover our journey and the team behind Finexo’s innovative solutions.  </p>
       </div>
       <div class="row">
         <div class="col-md-6 ">
@@ -215,15 +166,12 @@
               We Are Finexo
             </h3>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+              At Finexo, we pride ourselves on being at the forefront of IT innovation, delivering a comprehensive suite of services designed to meet the diverse needs of our clients. Our expertise spans across software development, web and mobile applications, system integration, and IT consulting. With a commitment to excellence and a passion for technology, we tailor our solutions to drive efficiency, enhance user experiences, and foster growth for businesses of all sizes. Our dedicated team of professionals brings a wealth of knowledge and a collaborative approach to every project, ensuring that we not only meet but exceed your expectations.
             </p>
             <p>
-              Molestiae odio earum non qui cumque provident voluptates, repellendus exercitationem, possimus at iste corrupti officiis unde alias eius ducimus reiciendis soluta eveniet. Nobis ullam ab omnis quasi expedita.
+              From software development to consulting, designed to drive innovation and efficiency for your business. Our expert team delivers tailored solutions that enhance performance and support your growth.
             </p>
-            <a href="">
+            <a href="/about1/">
               Read More
             </a>
           </div>
@@ -234,82 +182,6 @@
 
   <!-- end about section -->
 
-  <!-- why section -->
-
-  <section class="why_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Why Choose <span>Us</span>
-        </h2>
-      </div>
-      <div class="why_container">
-        <div class="box">
-          <div class="img-box">
-            <img src="/static/images/w1.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Expert Management
-            </h5>
-            <p>
-              Incidunt odit rerum tenetur alias architecto asperiores omnis cumque doloribus aperiam numquam! Eligendi corrupti, molestias laborum dolores quod nisi vitae voluptate ipsa? In tempore voluptate ducimus officia id, aspernatur nihil.
-              Tempore laborum nesciunt ut veniam, nemo officia ullam repudiandae repellat veritatis unde reiciendis possimus animi autem natus
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="/static/images/w2.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Secure Investment
-            </h5>
-            <p>
-              Incidunt odit rerum tenetur alias architecto asperiores omnis cumque doloribus aperiam numquam! Eligendi corrupti, molestias laborum dolores quod nisi vitae voluptate ipsa? In tempore voluptate ducimus officia id, aspernatur nihil.
-              Tempore laborum nesciunt ut veniam, nemo officia ullam repudiandae repellat veritatis unde reiciendis possimus animi autem natus
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="/static/images/w3.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Instant Trading
-            </h5>
-            <p>
-              Incidunt odit rerum tenetur alias architecto asperiores omnis cumque doloribus aperiam numquam! Eligendi corrupti, molestias laborum dolores quod nisi vitae voluptate ipsa? In tempore voluptate ducimus officia id, aspernatur nihil.
-              Tempore laborum nesciunt ut veniam, nemo officia ullam repudiandae repellat veritatis unde reiciendis possimus animi autem natus
-            </p>
-          </div>
-        </div>
-        <div class="box">
-          <div class="img-box">
-            <img src="/static/images/w4.png" alt="">
-          </div>
-          <div class="detail-box">
-            <h5>
-              Happy Customers
-            </h5>
-            <p>
-              Incidunt odit rerum tenetur alias architecto asperiores omnis cumque doloribus aperiam numquam! Eligendi corrupti, molestias laborum dolores quod nisi vitae voluptate ipsa? In tempore voluptate ducimus officia id, aspernatur nihil.
-              Tempore laborum nesciunt ut veniam, nemo officia ullam repudiandae repellat veritatis unde reiciendis possimus animi autem natus
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="btn-box">
-        <a href="">
-          Read More
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- end why section -->
 
   <!-- team section -->
   <section class="team_section layout_padding">

@@ -13,7 +13,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="/static/images/favicon.png" type="">
 
-  <title> {{data.title}} </title>
+  <title> Finexo </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
@@ -71,8 +71,8 @@
           <li class="nav-item  {% if request.path == '/service1/' %} active {% endif %}">
             <a class="nav-link" href="{% url 'service1' %}">Services</a>
           </li>
-          <li class="nav-item  {% if request.path == '/why1' %} active {% endif %}">
-            <a class="nav-link" href="{% url 'why1' %}">Why Us</a>
+          <li class="nav-item  {% if request.path == '/blog1/' %} active {% endif %}">
+            <a class="nav-link" href="{% url 'blog1' %}">Blogs</a>
           </li>
           <li class="nav-item  {% if request.path == '/team1/' %} active {% endif %}">
             <a class="nav-link" href="{% url 'team1' %}">Team</a>

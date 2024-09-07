@@ -9,8 +9,9 @@ from django.core.paginator import Paginator
 
 def home(request):
     newsdata = news.objects.all();
+    newservicedata = newserviceclass.objects.all().order_by('-id')[:3]
     data={
-       "title":"Dhara's Site",
+       'mytitle':"Finexo",
         "dharas":"Dhara's",
         "secondtext":"Website",
         "clist":["php", "java", "Django"],
@@ -20,8 +21,10 @@ def home(request):
              {'name':'Hetvi', 'phone':'8724958284'},
         ],
         'newsdata': newsdata,
+        'servicesdata': newservicedata
     }
-   
+ 
+    
     return render(request,"index.html",data)
 
 def newsdetail(request, id):
@@ -61,13 +64,14 @@ def service1(request):
 
 
 
+def blog1(request):
+    return render(request, "blog.html")
 
 
 
 def team1(request):
     return render(request,"team.html")
-def why1(request):
-    return render(request,"why.html")
+
 
 def marksheet1(request):
     try:
