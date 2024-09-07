@@ -22,6 +22,15 @@ def home(request):
     }
    
     return render(request,"index.html",data)
+
+def newsdetail(request, newsid):
+    newsdetail = news.objects.get(id=newsid)
+    data={
+        'newsdetail':newsdetail,
+    }
+    return render(request,"newsdetail.html",data)
+    
+
 def about1(request):
     if request.method == "GET":
         output=request.GET.get('finalans')

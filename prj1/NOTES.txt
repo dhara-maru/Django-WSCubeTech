@@ -211,3 +211,30 @@ class news(models.Model):
   {% endfor %}
 </marquee>
 
+//************************************* display table data with dynamic url in page VID 42 **********************************
+//1. added this type of anchor tag
+<marquee onmouseover="stop()" onmouseout="start()" style="color:white">
+  {% for news in newsdata %}
+  <a href="/newsdetail1/{{news.id}}">{{news.news_title}} </a>&nbsp &nbsp &nbsp 
+  {% endfor %}
+</marquee>
+
+//2. passed id in views.py
+//def newsdetail(request, newsid):
+    return render(request,"newsdetail.html")
+
+//3. added a url with id
+path('newsdetail1/<newsid>',views.newsdetail)
+
+//4.made a redirecting page as newsdetails.html 
+//5. fetch data like this method
+def newsdetail(request, newsid):
+    newsdetail = news.objects.get(id=newsid)
+    data={
+        'newsdetail':newsdetail,
+    }
+    return render(request,"newsdetail.html",data)
+//6. give params in newsdetail.html page like this 
+<h2>{{newsdetail.news_title}}</h2>
+<p>{{newsdetail.news_desc | safe}}</p>
+//this is how i can give dynamic data through table id and fetch it in page

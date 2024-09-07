@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-<marquee style="color:white">
+<marquee onmouseover="stop()" onmouseout="start()" style="color:white">
   {% for news in newsdata %}
-  {{news.news_title}} &nbsp &nbsp &nbsp 
+  <a href="/newsdetail1/{{news.id}}">{{news.news_title}} </a>&nbsp &nbsp &nbsp 
   {% endfor %}
 </marquee>
     <!-- slider section -->
