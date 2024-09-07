@@ -238,3 +238,33 @@ def newsdetail(request, newsid):
 <h2>{{newsdetail.news_title}}</h2>
 <p>{{newsdetail.news_desc | safe}}</p>
 //this is how i can give dynamic data through table id and fetch it in page
+
+//***************************** RESET DJANGO ADMIN PASSWORD through command VID 43 *******************************
+//1. write in cmd terminal
+python manage.py changepassword admin //admin is the username
+
+//************************* FILTER() SEARCH FUNCTIONALIY VID 44 ***********************************
+//1.make a search bar with name attribute
+ <input class="form-control me-2" name="servicename" type="search" placeholder="Search" aria-label="Search">
+              
+//2. have this in ur views.py
+def service1(request):
+    # Fetch all records from the newserviceclass model
+    newservicedata = newserviceclass.objects.all().order_by('-id')
+
+    # Check if there is a GET request with 'servicename' parameter
+    st = request.GET.get('servicename')
+    if st:
+        # Filter the newservicedata based on the 'service_title' field
+        newservicedata = newserviceclass.objects.filter(service_title__icontains=st).order_by('-id')
+
+    # Pass the filtered or unfiltered data to the template
+    data = {
+        'servicesdata': newservicedata
+    }
+
+    return render(request, "service.html", data)
+
+//************************* AUTO SLUGFIELD  VID 45 ***********************************
+//video ignored
+

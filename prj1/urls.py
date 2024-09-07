@@ -30,5 +30,5 @@ urlpatterns = [
     path('calc1/', views.calc1),
     path('evenorodd1/',views.evenorodd1),
     path('marksheet1/',views.marksheet1),
-    path('newsdetail1/<newsid>',views.newsdetail)
+    path('newsdetail1/<id>',views.newsdetail)
 ]

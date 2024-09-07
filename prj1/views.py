@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .forms import userforms
 from newservice.models import newserviceclass
 from news.models import news
+from django.core.paginator import Paginator
 
 
 def home(request):
@@ -23,8 +24,8 @@ def home(request):
    
     return render(request,"index.html",data)
 
-def newsdetail(request, newsid):
-    newsdetail = news.objects.get(id=newsid)
+def newsdetail(request, id):
+    newsdetail = news.objects.get(id=id)
     data={
         'newsdetail':newsdetail,
     }
@@ -40,12 +41,24 @@ def about1(request):
 
 
 def service1(request):
+    
+    
     # Fetch all records from the newserviceclass model
-    newservicedata = newserviceclass.objects.all().order_by('-id')[2:4]
+    newservicedata = newserviceclass.objects.all().order_by('-id')
+
+    # Check if there is a GET request with 'servicename' parameter
+    st = request.GET.get('servicename')
+    if st:
+        # Filter the newservicedata based on the 'service_title' field
+        newservicedata = newserviceclass.objects.filter(service_title__icontains=st).order_by('-id')
+
+    # Pass the filtered or unfiltered data to the template
     data = {
         'servicesdata': newservicedata
     }
+
     return render(request, "service.html", data)
+
 
 
 
