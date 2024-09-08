@@ -5,6 +5,7 @@ from .forms import userforms
 from newservice.models import newserviceclass
 from news.models import news
 from django.core.paginator import Paginator
+from contactq.models import contactq
 
 
 def home(request):
@@ -75,6 +76,11 @@ def blog1(request):
     return render(request, "blog.html")
 
 
+def contact1(request):
+    return render(request, "contact.html")
+
+def saveenquiry1(request):
+    return render(request, "contact.html")
 
 def team1(request):
     return render(request,"team.html")

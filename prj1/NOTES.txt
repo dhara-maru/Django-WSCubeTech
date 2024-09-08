@@ -313,3 +313,4 @@ def service1(request):
       <li class="page-item"><a class="page-link" href="/service1/?page={{n}}">{{n}}</a></li>
       {% endfor %}
 
+//***************************** HOW TO SAVE FORM DATA TO DB VID 48 *****************************
