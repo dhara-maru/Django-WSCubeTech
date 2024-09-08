@@ -70,7 +70,7 @@
             <a class="nav-link" href="{% url 'service1' %}">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'why1' %}">Why Us</a>
+            <a class="nav-link" href="{% url 'blog1' %}">Blogs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'team1' %}">Team</a>
@@ -150,7 +150,22 @@
   </section>
 
   <!-- end service section -->
-
+   <div class="d-flex justify-content-center align-items-center">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      {% if servicesdata.has_previous %}
+      <li class="page-item"><a class="page-link" href="/service1/?page=1">First</a></li>
+      <li class="page-item"><a class="page-link" href="/service1/?page={{servicesdata.previous_page_number}}">Previous</a></li>
+      {% endif %}
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      {% if servicesdata.has_next %}
+      <li class="page-item"><a class="page-link" href="/service1/?page={{servicesdata.next_page_number}}">Next</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+</div>
   <!-- info section -->
 
   <section class="info_section layout_padding2">

@@ -268,3 +268,25 @@ def service1(request):
 //************************* AUTO SLUGFIELD  VID 45 ***********************************
 //video ignored
 
+//***************************** PAGINATION VID 46 *****************************
+//1. import paginator
+from django.core.paginator import Paginator
+//2. add this 
+def service1(request):
+
+    newservicedata = newserviceclass.objects.all().order_by('-id')
+    paginator=Paginator(newservicedata,3)
+    page_number=request.GET.get('page')
+    servicedatafinal=paginator.get_page(page_number)
+
+    st = request.GET.get('servicename')
+    if st:
+        # Filter the newservicedata based on the 'service_title' field
+        newservicedata = newserviceclass.objects.filter(service_title__icontains=st).order_by('-id')
+
+    # Pass the final paged data to the template
+    data = {
+        'servicesdata': servicedatafinal
+    }
+
+    return render(request, "service.html", data)

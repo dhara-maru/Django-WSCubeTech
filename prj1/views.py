@@ -48,7 +48,11 @@ def service1(request):
     
     # Fetch all records from the newserviceclass model
     newservicedata = newserviceclass.objects.all().order_by('-id')
-
+    paginator=Paginator(newservicedata,3)
+    page_number=request.GET.get('page')
+    servicedatafinal=paginator.get_page(page_number)
+    
+    
     # Check if there is a GET request with 'servicename' parameter
     st = request.GET.get('servicename')
     if st:
@@ -57,7 +61,7 @@ def service1(request):
 
     # Pass the filtered or unfiltered data to the template
     data = {
-        'servicesdata': newservicedata
+        'servicesdata': servicedatafinal
     }
 
     return render(request, "service.html", data)
