@@ -290,3 +290,26 @@ def service1(request):
     }
 
     return render(request, "service.html", data)
+
+//***************************** LAST PAGE PAGINATION VID 47 *****************************
+//1. servies.html
+      <li class="page-item"><a class="page-link" href="/service1/?page={{lastpage}}"">Last</a></li>
+//2.views.py
+ totalpage=servicedatafinal.paginator.num_pages
+ //in data
+ data = {
+        'servicesdata': servicedatafinal,
+        'lastpage':totalpage
+    }
+
+//3. using list comprehension for assigning page numbers
+   data = {
+        'servicesdata': servicedatafinal,
+        'lastpage':totalpage,
+        'totalpagelist':[n+1 for n in range(totalpage)]
+    }
+//in .html page for numbered pages
+ {% for n in totalpagelist %}
+      <li class="page-item"><a class="page-link" href="/service1/?page={{n}}">{{n}}</a></li>
+      {% endfor %}
+

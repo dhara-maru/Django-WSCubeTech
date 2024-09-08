@@ -51,6 +51,7 @@ def service1(request):
     paginator=Paginator(newservicedata,3)
     page_number=request.GET.get('page')
     servicedatafinal=paginator.get_page(page_number)
+    totalpage=servicedatafinal.paginator.num_pages;
     
     
     # Check if there is a GET request with 'servicename' parameter
@@ -61,7 +62,9 @@ def service1(request):
 
     # Pass the filtered or unfiltered data to the template
     data = {
-        'servicesdata': servicedatafinal
+        'servicesdata': servicedatafinal,
+        'lastpage':totalpage,
+        'totalpagelist':[n+1 for n in range(totalpage)]
     }
 
     return render(request, "service.html", data)
