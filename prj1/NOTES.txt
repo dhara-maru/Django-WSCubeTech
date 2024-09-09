@@ -355,4 +355,8 @@ class newsadmin(admin.ModelAdmin):
     list_display=('news_title', 'news_desc','news_image')
 
 //****************************************** DISPLAY IMAGE VID 50 **********************************
-//1.
+//1. {% if newsdetail.news_image != ''%}
+        <div class="col-12">
+          <img src="/media/{{newsdetail.news_image}}" height="300px" width="400px">
+        </div>
+        {% endif %}
