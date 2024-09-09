@@ -6,9 +6,17 @@ from newservice.models import newserviceclass
 from news.models import news
 from django.core.paginator import Paginator
 from contactq.models import contactq
-
+from django.core.mail import send_mail
 
 def home(request):
+    
+    # send_mail(
+    #     'Subject esting mail',
+    #     'Here is Dhara\'s message.',
+    #     'djangodhara@gmail.com',
+    #     ['dharamaru406@gmail.com'],
+    #     fail_silently=False,
+    # )
     newsdata = news.objects.all();
     newservicedata = newserviceclass.objects.all().order_by('-id')[:3]
     data={
