@@ -6,10 +6,13 @@ from newservice.models import newserviceclass
 from news.models import news
 from django.core.paginator import Paginator
 from contactq.models import contactq
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMultiAlternatives
+
 
 def home(request):
     
+    #VID 51 SIMPLE EMAIL SENDING METHOD
+    #--------------------------------------------
     # send_mail(
     #     'Subject esting mail',
     #     'Here is Dhara\'s message.',
@@ -17,6 +20,19 @@ def home(request):
     #     ['dharamaru406@gmail.com'],
     #     fail_silently=False,
     # )
+    
+    
+    #VID 52 EMAIL MULTI ALTERNATIVES METHOD : 
+    #---------------------------------------------
+    # subject='Subject esting mail'
+    # from_email = 'djangodhara@gmail.com'
+    # msg = '<p>Eda Mone!!!</p>'
+    # to_email= 'dharamaru406@gmail.com'
+    # msg = EmailMultiAlternatives(subject, msg, from_email, [to_email]) 
+    # msg.content_subtype='html'
+    # msg.send()
+    
+    
     newsdata = news.objects.all();
     newservicedata = newserviceclass.objects.all().order_by('-id')[:3]
     data={
