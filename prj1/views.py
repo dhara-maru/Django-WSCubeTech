@@ -81,6 +81,7 @@ def contact1(request):
 
 def saveenquiry1(request):
     if request.method=="POST":
+        msg=''
         name=request.POST.get('name')
         email=request.POST.get('email')
         phone=request.POST.get('phone')
@@ -90,7 +91,8 @@ def saveenquiry1(request):
         data=contactq(contactq_name=name, contactq_email=email, contactq_phone=phone, contactq_website=website, contactq_message = msg )
         
         data.save()
-    return render(request, "contact.html")
+        msg="Thanks for your Query!"
+    return render(request, "contact.html",{'msg':msg})
 
 def team1(request):
     return render(request,"team.html")
