@@ -331,3 +331,28 @@ def saveenquiry1(request):
         data.save()
     return render(request, "contact.html")
 //here, i've created a new model for contact and these are the columns in it which i'm trying to put in form. the data any user enters is successfully being uploaded to model in admin panel.
+
+//************************************ FILE UPLOAD IN DJANGO MODEL VID 49 *********************************************
+//1. Create a media folder in root directory
+//2. add it in settings.py Like this -
+#media roots added by dhara
+MEDIA_ROOT = BASE_DIR /"media"
+
+MEDIA_URL = "/media"
+//3. import this in urls.py
+from django.conf import settings
+from django.conf.urls.static import static
+
+//also add this there
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+//4. added this field for image upload in news models.py
+ news_image=models.FileField(upload_to="news/", max_length=250, null=True, default=None)
+//5.migrate
+//6. add this in admin.py to show the feild in admin panel
+class newsadmin(admin.ModelAdmin):
+    list_display=('news_title', 'news_desc','news_image')
+
+//****************************************** DISPLAY IMAGE VID 50 **********************************
+//1.
