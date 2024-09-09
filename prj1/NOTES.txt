@@ -314,3 +314,20 @@ def service1(request):
       {% endfor %}
 
 //***************************** HOW TO SAVE FORM DATA TO DB VID 48 *****************************
+//1.make a form with name, csrf token and action attribute
+  <form method="post" action=" {% url 'saveenquiry1' %}">
+                {% csrf_token %}
+//2.do this in views.py
+def saveenquiry1(request):
+    if request.method=="POST":
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        phone=request.POST.get('phone')
+        website=request.POST.get('website')
+        msg=request.POST.get('msg')
+        
+        data=contactq(contactq_name=name, contactq_email=email, contactq_phone=phone, contactq_website=website, contactq_message = msg )
+        
+        data.save()
+    return render(request, "contact.html")
+//here, i've created a new model for contact and these are the columns in it which i'm trying to put in form. the data any user enters is successfully being uploaded to model in admin panel.

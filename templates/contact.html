@@ -107,27 +107,27 @@
         <!-- Form section -->
         <div class="col-md-6">
             <h2>Contact Us</h2>
-            <form method="post">
+            <form method="post" action=" {% url 'saveenquiry1' %}">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+                    <input type="tel" name="phone" class="form-control" id="phone" placeholder="Enter your phone number" required>
                 </div>
                 <div class="form-group">
                     <label for="website">Website Name</label>
-                    <input type="text" class="form-control" id="website" placeholder="Enter your website name" required>
+                    <input type="text" name="website" class="form-control" id="website" placeholder="Enter your website name" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea class="form-control" id="message" rows="4" placeholder="Enter your message" required></textarea>
+                    <textarea class="form-control" name="msg" id="message" rows="4" placeholder="Enter your message" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
