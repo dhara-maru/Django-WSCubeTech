@@ -7,7 +7,7 @@ from news.models import news
 from django.core.paginator import Paginator
 from contactq.models import contactq
 from django.core.mail import send_mail, EmailMultiAlternatives
-
+from login.models import loginclass
 
 def home(request):
     
@@ -251,3 +251,17 @@ def submitform1(request):
    except:
         pass
    
+def signup1(request):
+    if request.method=="POST":
+        username=request.POST.get('username')
+        email=request.POST.get('email')
+        password=request.POST.get('password')
+    
+        
+        data=loginclass(login_username=username, login_email=email, login_password=password)
+        
+        data.save()
+    return render(request, "signup.html")
+
+def loginform1(request):
+    return render(request, "loginform.html")
