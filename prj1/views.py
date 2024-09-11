@@ -8,6 +8,9 @@ from django.core.paginator import Paginator
 from contactq.models import contactq
 from django.core.mail import send_mail, EmailMultiAlternatives
 from login.models import loginclass
+from django.shortcuts import render, redirect 
+from django.contrib import messages
+
 
 def home(request):
     
@@ -251,17 +254,35 @@ def submitform1(request):
    except:
         pass
    
+
+
 def signup1(request):
-    if request.method=="POST":
-        username=request.POST.get('username')
-        email=request.POST.get('email')
-        password=request.POST.get('password')
-    
-        
-        data=loginclass(login_username=username, login_email=email, login_password=password)
-        
-        data.save()
-    return render(request, "signup.html")
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+
+        # Save the data to the model
+        user = loginclass(login_username=username, login_email=email, login_password=password)
+        user.save()
+
+        # Redirect to login page after successful signup
+        return redirect('loginform1')  # Assuming you have a URL named 'login'
+    return render(request, 'signup.html')
+
+
 
 def loginform1(request):
-    return render(request, "loginform.html")
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        try:
+            user = loginclass.objects.get(login_username=username, login_password=password)
+            # Redirect to the home page if credentials are correct
+            return redirect('home')
+        except loginclass.DoesNotExist:
+            # Display an error message if login fails
+            messages.error(request, 'Invalid username or password.')
+
+    return render(request, 'loginform.html')

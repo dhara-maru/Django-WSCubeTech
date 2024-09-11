@@ -1,9 +1,7 @@
 from django.contrib import admin
+from .models import loginclass
 
-from login.models import loginclass
 class loginadmin(admin.ModelAdmin):
-    list_display=('login_username','login_email','login_password')
-# Register your models here.
-
+    list_display = ('login_username', 'login_email', 'login_password')
 
 admin.site.register(loginclass, loginadmin)
