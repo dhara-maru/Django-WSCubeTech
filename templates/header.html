@@ -74,20 +74,13 @@
           <li class="nav-item  {% if request.path == '/blog1/' %} active {% endif %}">
             <a class="nav-link" href="{% url 'blog1' %}">Blogs</a>
           </li>
-          <li class="nav-item  {% if request.path == '/team1/' %} active {% endif %}">
-            <a class="nav-link" href="{% url 'team1' %}">Team</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'contact1' %}">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+            <a class="nav-link" href="/signup1/"> <i class="fa fa-user" aria-hidden="true"></i> SignUp</a>
           </li>
-          <form class="form-inline">
-            {% comment %} <button class="btn my-2 my-sm-0 nav_search-btn" type="submit">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </button> {% endcomment %}
-          </form>
+       
         </ul>
       </div>
     </nav>

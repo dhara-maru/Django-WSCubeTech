@@ -121,8 +121,6 @@ def saveenquiry1(request):
         msg="Thanks for your Query!"
     return render(request, "contact.html",{'msg':msg})
 
-def team1(request):
-    return render(request,"team.html")
 
 
 def marksheet1(request):

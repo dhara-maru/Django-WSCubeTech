@@ -27,7 +27,6 @@ urlpatterns = [
     path('contact1/', views.contact1, name='contact1'),
      path('saveenquiry1/', views.saveenquiry1, name='saveenquiry1'),
     path('service1/', views.service1, name='service1'),
-    path('team1/', views.team1, name='team1'),
     path('userform1/', views.userform1, name='userform1'),
     path('submitform1/', views.submitform1, name='submitform1'),
     path('calc1/', views.calc1),
