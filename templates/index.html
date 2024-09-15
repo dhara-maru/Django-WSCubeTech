@@ -194,6 +194,7 @@
       </div>
       <div class="carousel-wrap ">
         <div class="owl-carousel client_owl-carousel">
+          {% for n in testimonialdata %}
           <div class="item">
             <div class="box">
               {% comment %} <div class="img-box">
@@ -203,20 +204,22 @@
                 <div class="client_id">
                   <div class="client_info">
                     <h6>
-                      LusDen
+                      {{n.contactq_name}}
                     </h6>
                     <p>
-                      magna aliqua. Ut
+                      {{n.contactq_email}}
                     </p>
                   </div>
                   <i class="fa fa-quote-left" aria-hidden="true"></i>
                 </div>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
+                  {{n.contactq_message | safe }}
+                </p>
               </div>
             </div>
           </div>
-          <div class="item">
+          {% endfor %}
+          <!--<div class="item">
             <div class="box">
               {% comment %} <div class="img-box">
                 <img src="/static/images/client2.jpg" alt="" class="box-img">
@@ -281,7 +284,7 @@
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </p>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
       </div>
     </div>

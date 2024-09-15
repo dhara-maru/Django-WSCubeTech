@@ -13,7 +13,8 @@ from django.contrib import messages
 
 
 def home(request):
-    
+       
+  
     #VID 51 SIMPLE EMAIL SENDING METHOD
     #--------------------------------------------
     # send_mail(
@@ -35,21 +36,17 @@ def home(request):
     # msg.content_subtype='html'
     # msg.send()
     
-    
+
+   
+
     newsdata = news.objects.all();
     newservicedata = newserviceclass.objects.all().order_by('-id')[:3]
+    testimonialdata = contactq.objects.all().order_by('-id')
     data={
-       'mytitle':"Finexo",
-        "dharas":"Dhara's",
-        "secondtext":"Website",
-        "clist":["php", "java", "Django"],
-        "numbers" : [10,20,30,40,50],
-        "student_details" : [
-            {'name':'Dhara', 'phone':'8724958284'},
-             {'name':'Hetvi', 'phone':'8724958284'},
-        ],
+        'mytitle':"Finexo",
         'newsdata': newsdata,
-        'servicesdata': newservicedata
+        'servicesdata': newservicedata,
+        'testimonialdata': testimonialdata
     }
  
     
