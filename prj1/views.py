@@ -39,9 +39,9 @@ def home(request):
 
    
 
-    newsdata = news.objects.all();
+    newsdata = news.objects.all().order_by('-id');
     newservicedata = newserviceclass.objects.all().order_by('-id')[:3]
-    testimonialdata = contactq.objects.all().order_by('-id')
+    testimonialdata = contactq.objects.all().order_by('id')
     data={
         'mytitle':"Finexo",
         'newsdata': newsdata,
