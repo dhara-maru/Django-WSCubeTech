@@ -32,7 +32,7 @@ urlpatterns = [
     path('calc1/', views.calc1),
     path('evenorodd1/',views.evenorodd1),
     path('marksheet1/',views.marksheet1),
-    path('blog1/',views.blog1, name='blog1'),
+    
     path('newsdetail1/<id>',views.newsdetail),
     path('signup1/', views.signup1, name='signup1'),
     path('loginform1/', views.loginform1, name='loginform1')

@@ -96,8 +96,7 @@ def service1(request):
 
 
 
-def blog1(request):
-    return render(request, "blog.html")
+
 
 
 def contact1(request):
