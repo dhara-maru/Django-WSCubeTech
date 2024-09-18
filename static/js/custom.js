@@ -44,3 +44,35 @@ function myMap() {
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
+
+
+
+
+
+
+
+
+  // Initialize Locomotive Scroll
+  const scroll = new LocomotiveScroll({
+    el: document.querySelector('[data-scroll-container]'),
+    smooth: true,
+  });
+
+  const scrollThumb = document.getElementById('scrollThumb');
+  let isScrolling;
+
+  // Update scroll thumb position during scroll
+  scroll.on('scroll', (instance) => {
+    const scrollPercent = instance.scroll.y / (instance.limit - window.innerHeight);
+    const thumbPosition = scrollPercent * (window.innerHeight - 12);
+    scrollThumb.style.top = `${thumbPosition}px`;
+  });
+
+  // Show scroll thumb on mouse move
+  document.addEventListener('mousemove', () => {
+    document.body.classList.add('mouse-moving');
+    clearTimeout(isScrolling);
+    isScrolling = setTimeout(() => {
+      document.body.classList.remove('mouse-moving');
+    }, 1000); // Hide the dot after 1 second of no mouse movement
+  });

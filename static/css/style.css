@@ -6,6 +6,66 @@ body {
   overflow-x: hidden;
 }
 
+
+
+/* smooth scrolling  */
+ /* Custom Scroll Thumb (Dot) */
+ .scroll-thumb {
+  position: fixed;
+  right: 15px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+/* Fade-in scroll thumb when mouse is moving */
+body.mouse-moving .scroll-thumb {
+  opacity: 1;
+} /* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hides default scrollbars */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  scrollbar-width: none; /* For Firefox */
+}
+
+/* Scroll Thumb (Dot) */
+.scroll-thumb {
+  position: fixed;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Main Content */
+.content {
+  height: 200vh; /* Height to make page scrollable */
+  padding: 20px;
+}
+
+/* Show the scroll dot when mouse is moving */
+body.mouse-moving .scroll-thumb {
+  opacity: 1;
+}
+/* smooth scrolling  */
+
+
+
+
 .layout_padding {
   padding: 90px 0;
 }

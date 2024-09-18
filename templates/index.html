@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
+
+ 
+
+  <!-- Locomotive Scroll CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/locomotive-scroll/4.1.4/locomotive-scroll.min.css" />
+
 <marquee onmouseover="stop()" onmouseout="start()" style="color:white">
   {% for news in newsdata %}
   <a href="/newsdetail1/{{news.id}}">{{news.news_title}} </a>&nbsp &nbsp &nbsp 
